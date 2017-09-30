@@ -1,0 +1,70 @@
+{
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "ranges": [
+        {
+            "start": 65,
+            "end": 90,
+            "title": "range #0"
+        },
+        {
+            "start": 176,
+            "end": 191,
+            "title": "range #1"
+        },
+        {
+            "start": 73,
+            "end": 79,
+            "title": "range #2"
+        },
+        {
+            "start": 136,
+            "end": 141,
+            "title": "range #3"
+        },
+        {
+            "start": 7,
+            "end": 12,
+            "title": "range #4"
+        },
+        {
+            "start": 445,
+            "end": 445,
+            "title": "range #5"
+        },
+        {
+            "start": 136,
+            "end": 148,
+            "title": "range #6"
+        },
+        {
+            "start": 136,
+            "end": 148,
+            "title": "range #7"
+        },
+        {
+            "start": 291,
+            "end": 302,
+            "title": "range #8"
+        },
+        {
+            "start": 184,
+            "end": 191,
+            "title": "range #9"
+        },
+        {
+            "start": 402,
+            "end": 408,
+            "title": "range #10"
+        },
+        {
+            "start": 543,
+            "end": 548,
+            "title": "range #11"
+        },
+        {
+            "start": 296,
+            "end": 309,
+            "title": "range #12"
+        }
+    ]
+}
