@@ -37,6 +37,7 @@ aside {
 
 .main__text {
     position: relative;
+    padding: 5px;
     width: 650px;
     border: 1px dotted #c5c5c5;
 }
@@ -105,3 +106,6 @@ aside {
     border: 1px solid #59A9FF;
 }
 
+.gray {
+    background: rgba(167, 167, 167, 0.30);
+}

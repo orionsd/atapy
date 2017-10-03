@@ -1,10 +1,12 @@
 var aside = document.querySelector(".aside");
-var mainText = document.querySelector(".main__text");
+var main = document.querySelector(".main");
 var apps = {};
 var entry;
 var entries = [];
 var stripe;
 var stripes = [];
+var stripeBlocks = [];
+
 
 /*Извлечение данных из json file*/
 function getContent() {
@@ -18,7 +20,6 @@ function getContent() {
         }
         apps = JSON.parse(data);
         createEntry();
-        createText();
         createRanges();
     }
 }
@@ -49,55 +50,55 @@ function createEntry() {
         var endRange = rangeBlock.appendChild(document.createElement("p"));
         endRange.classList.add("entry__end-range");
         endRange.innerHTML = apps.ranges[i].end;
-        
+
         entries.push(entry);
         clickEntry();
     }
 }
 
-
 function createRanges() {
     for (var i = 0; i < apps.ranges.length; i++) {
-        stripe = document.createElement("div");
-        stripe.classList.add("range-stripe");
-        stripe.classList.add("no-active");
-        mainText.appendChild(stripe);
         var startPos = apps.ranges[i].start;
         var endPos = apps.ranges[i].end;
-        var entryStripeWidth = stripe.style.width = (endPos - startPos) + "px";
-        var startRangeBlock = (/*stripe.offsetLeft +*/ startPos) + "px";
-        stripe.style.left = startRangeBlock;
+        var stripe = apps.text.substring(startPos, endPos);
         stripes.push(stripe);
+
+        var changedText = apps.text;
+        stripes.forEach(function (stripe, n, stripes) {
+            var replaceItem = new RegExp(stripe);
+            changedText = changedText.replace(replaceItem, '<span class="gray no-active">' + stripe + '</span>');
+        });
     }
+    var mainText = main.appendChild(document.createElement("p"));
+    mainText.classList.add("main__text");
+    mainText.innerHTML = changedText;
+
+    var stripeItems = document.querySelectorAll(".gray");
+    stripeBlocks.push(stripeItems);
 }
 
-/*Добавление текста в правой стороне*/
-function createText() {
-    mainText.innerHTML = apps.text;
-    var textLength = apps.text.length;
-    console.log(textLength);
-    mainText.style.width = textLength;
-
-}
 
 /*Click по элементу entry*/
 function clickEntry() {
     entry.addEventListener("click", function () {
-        for (var k = 0; k < entries.length; k++) {
-            if (entries[k].classList.contains('active')) {
-                entries[k].classList.remove('active');
-                entries[k].classList.add('no-active');
+        for (var i = 0; i < entries.length; i++) {
+            if (entries[i].classList.contains('active')) {
+                entries[i].classList.remove('active');
+                entries[i].classList.add('no-active');
             }
 
-            if (stripes[k].classList.contains('active')) {
-                stripes[k].classList.remove('active');
-                stripes[k].classList.add('no-active');
-            }
+            console.log(stripeBlocks[i]);
 
-            if (this == entries[k]) {
-                stripes[k].classList.toggle('active');
-                stripes[k].classList.toggle('no-active');
-            }
+           /* if (stripeBlocks[i].classList.contains('active')) {
+             stripeBlocks[i].classList.remove('active');
+             stripeBlocks[i].classList.add('no-active');
+             }
+
+             if (this == entries[i]) {
+             stripeBlocks[i].classList.toggle('active');
+             stripeBlocks[i].classList.toggle('no-active');
+             }*/
+
         }
         this.classList.toggle('active');
         this.classList.toggle('no-active');
